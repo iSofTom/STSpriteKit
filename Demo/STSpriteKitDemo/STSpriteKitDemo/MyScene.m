@@ -24,15 +24,15 @@
         }];
         [self addChild:node];
         
-        STControlSprite* sprite = [STControlSprite spriteNodeWithColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1] size:CGSizeMake(100, 100)];
-        sprite.position = CGPointMake(50, 50);
+        STControlSprite* sprite = [STControlSprite spriteNodeWithColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1] size:sts(100, 100)];
+        sprite.position = stp(50, 50);
         [sprite setTouchDownBlock:^{
             NSLog(@"sprite touch");
         }];
         [node addChild:sprite];
         
-        STControlSprite* sprite2 = [STControlSprite spriteNodeWithColor:[UIColor colorWithRed:0 green:1 blue:0 alpha:1] size:CGSizeMake(100, 100)];
-        sprite2.position = CGPointMake(100, 100);
+        STControlSprite* sprite2 = [STControlSprite spriteNodeWithColor:[UIColor colorWithRed:0 green:1 blue:0 alpha:1] size:sts(100, 100)];
+        sprite2.position = stp(100, 100);
 //        [sprite2 setTouchDownBlock:^{
 //            NSLog(@"sprite2 touch");
 //        }];

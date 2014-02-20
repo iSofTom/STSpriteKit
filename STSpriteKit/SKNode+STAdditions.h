@@ -11,6 +11,10 @@
 @interface SKNode (STAdditions)
 
 - (void)runActionsSequence:(NSArray*)actions;
+- (void)runActionsSequenceForever:(NSArray*)actions;
+
+- (void)runActionsGroup:(NSArray*)actions;
+
 - (void)runAction:(SKAction*)action afterDelay:(NSTimeInterval)delay;
 
 @end

@@ -12,7 +12,21 @@
 
 - (void)runActionsSequence:(NSArray*)actions
 {
-    [self runAction:[SKAction sequence:actions]];
+    SKAction* sequence = [SKAction sequence:actions];
+    [self runAction:sequence];
+}
+
+- (void)runActionsSequenceForever:(NSArray*)actions
+{
+    SKAction* sequence = [SKAction sequence:actions];
+    SKAction* repeat = [SKAction repeatActionForever:sequence];
+    [self runAction:repeat];
+}
+
+- (void)runActionsGroup:(NSArray*)actions
+{
+    SKAction* group = [SKAction group:actions];
+    [self runAction:group];
 }
 
 - (void)runAction:(SKAction*)action afterDelay:(NSTimeInterval)delay

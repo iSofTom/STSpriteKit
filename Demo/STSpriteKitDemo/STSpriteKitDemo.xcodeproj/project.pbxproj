@@ -71,6 +71,7 @@
 		9AE1347F18B64FC700D5A031 /* SKNode+STAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKNode+STAdditions.h"; sourceTree = "<group>"; };
 		9AE1348018B64FC700D5A031 /* SKNode+STAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKNode+STAdditions.m"; sourceTree = "<group>"; };
 		9AE1348218B64FE000D5A031 /* STSpriteKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STSpriteKit.h; sourceTree = "<group>"; };
+		9AE1348318B663E800D5A031 /* STSpriteKitUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STSpriteKitUtils.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +188,7 @@
 				9AE1347D18B64FAB00D5A031 /* SKAction+STAdditions.m */,
 				9AE1347F18B64FC700D5A031 /* SKNode+STAdditions.h */,
 				9AE1348018B64FC700D5A031 /* SKNode+STAdditions.m */,
+				9AE1348318B663E800D5A031 /* STSpriteKitUtils.h */,
 			);
 			name = STSpriteKit;
 			path = ../../STSpriteKit;
