@@ -14,6 +14,7 @@
 - (void)runActionsSequenceForever:(NSArray*)actions;
 
 - (void)runActionsGroup:(NSArray*)actions;
+- (void)runActionsGroupForever:(NSArray*)actions;
 
 - (void)runAction:(SKAction*)action afterDelay:(NSTimeInterval)delay;
 

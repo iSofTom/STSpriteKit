@@ -6,20 +6,19 @@
 //  Copyright (c) 2014 iSofTom. All rights reserved.
 //
 
-static inline CGPoint stp(CGFloat x, CGFloat y)
-{
-    return CGPointMake(x, y);
-}
+#define stp(x,y) CGPointMake(x,y)
+#define sts(w,h) CGSizeMake(w,h)
 
-static inline CGSize sts(CGFloat x, CGFloat y)
-{
-    return CGSizeMake(x, y);
-}
+#define stDegreToRadian(degre) (degre * M_PI / 180)
+#define stRadianToDegre(radian) (radian * 180 / M_PI)
 
 static inline CGPoint stpNormalize(CGPoint pt)
 {
     if (pt.x == 0 && pt.y == 0)
+    {
         return CGPointZero;
+    }
+    
     float m = sqrtf(pt.x * pt.x + pt.y * pt.y);
     return CGPointMake(pt.x/m, pt.y/m);
 }

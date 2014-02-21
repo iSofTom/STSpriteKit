@@ -29,6 +29,13 @@
     [self runAction:group];
 }
 
+- (void)runActionsGroupForever:(NSArray*)actions
+{
+    SKAction* group = [SKAction group:actions];
+    SKAction* repeat = [SKAction repeatActionForever:group];
+    [self runAction:repeat];
+}
+
 - (void)runAction:(SKAction*)action afterDelay:(NSTimeInterval)delay
 {
     SKAction* delayAction = [SKAction waitForDuration:delay];

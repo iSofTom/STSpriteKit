@@ -27,6 +27,7 @@
 		9AE1347B18B64F7F00D5A031 /* STControlSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1347A18B64F7F00D5A031 /* STControlSprite.m */; };
 		9AE1347E18B64FAB00D5A031 /* SKAction+STAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1347D18B64FAB00D5A031 /* SKAction+STAdditions.m */; };
 		9AE1348118B64FC700D5A031 /* SKNode+STAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1348018B64FC700D5A031 /* SKNode+STAdditions.m */; };
+		9AF7292718B7B65B00D511BA /* SKEmitterNode+STAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7292618B7B65B00D511BA /* SKEmitterNode+STAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		9AE1348018B64FC700D5A031 /* SKNode+STAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKNode+STAdditions.m"; sourceTree = "<group>"; };
 		9AE1348218B64FE000D5A031 /* STSpriteKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STSpriteKit.h; sourceTree = "<group>"; };
 		9AE1348318B663E800D5A031 /* STSpriteKitUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STSpriteKitUtils.h; sourceTree = "<group>"; };
+		9AF7292518B7B65B00D511BA /* SKEmitterNode+STAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKEmitterNode+STAdditions.h"; sourceTree = "<group>"; };
+		9AF7292618B7B65B00D511BA /* SKEmitterNode+STAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKEmitterNode+STAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +191,8 @@
 				9AE1347D18B64FAB00D5A031 /* SKAction+STAdditions.m */,
 				9AE1347F18B64FC700D5A031 /* SKNode+STAdditions.h */,
 				9AE1348018B64FC700D5A031 /* SKNode+STAdditions.m */,
+				9AF7292518B7B65B00D511BA /* SKEmitterNode+STAdditions.h */,
+				9AF7292618B7B65B00D511BA /* SKEmitterNode+STAdditions.m */,
 				9AE1348318B663E800D5A031 /* STSpriteKitUtils.h */,
 			);
 			name = STSpriteKit;
@@ -298,6 +303,7 @@
 				9AE1348118B64FC700D5A031 /* SKNode+STAdditions.m in Sources */,
 				9AE1344C18B64EED00D5A031 /* AppDelegate.m in Sources */,
 				9AE1344818B64EED00D5A031 /* main.m in Sources */,
+				9AF7292718B7B65B00D511BA /* SKEmitterNode+STAdditions.m in Sources */,
 				9AE1347B18B64F7F00D5A031 /* STControlSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,6 +515,7 @@
 				9AE1347118B64EED00D5A031 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9AE1347218B64EED00D5A031 /* Build configuration list for PBXNativeTarget "STSpriteKitDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +524,7 @@
 				9AE1347418B64EED00D5A031 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
