@@ -25,7 +25,6 @@
 		9AE1346C18B64EED00D5A031 /* STSpriteKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1346B18B64EED00D5A031 /* STSpriteKitDemoTests.m */; };
 		9AE1347818B64F6600D5A031 /* STControlNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1347718B64F6600D5A031 /* STControlNode.m */; };
 		9AE1347B18B64F7F00D5A031 /* STControlSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1347A18B64F7F00D5A031 /* STControlSprite.m */; };
-		9AE1347E18B64FAB00D5A031 /* SKAction+STAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1347D18B64FAB00D5A031 /* SKAction+STAdditions.m */; };
 		9AE1348118B64FC700D5A031 /* SKNode+STAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1348018B64FC700D5A031 /* SKNode+STAdditions.m */; };
 		9AF7292718B7B65B00D511BA /* SKEmitterNode+STAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7292618B7B65B00D511BA /* SKEmitterNode+STAdditions.m */; };
 /* End PBXBuildFile section */
@@ -67,8 +66,6 @@
 		9AE1347718B64F6600D5A031 /* STControlNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STControlNode.m; sourceTree = "<group>"; };
 		9AE1347918B64F7F00D5A031 /* STControlSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STControlSprite.h; sourceTree = "<group>"; };
 		9AE1347A18B64F7F00D5A031 /* STControlSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STControlSprite.m; sourceTree = "<group>"; };
-		9AE1347C18B64FAB00D5A031 /* SKAction+STAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKAction+STAdditions.h"; sourceTree = "<group>"; };
-		9AE1347D18B64FAB00D5A031 /* SKAction+STAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKAction+STAdditions.m"; sourceTree = "<group>"; };
 		9AE1347F18B64FC700D5A031 /* SKNode+STAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKNode+STAdditions.h"; sourceTree = "<group>"; };
 		9AE1348018B64FC700D5A031 /* SKNode+STAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKNode+STAdditions.m"; sourceTree = "<group>"; };
 		9AE1348218B64FE000D5A031 /* STSpriteKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STSpriteKit.h; sourceTree = "<group>"; };
@@ -187,8 +184,6 @@
 				9AE1347718B64F6600D5A031 /* STControlNode.m */,
 				9AE1347918B64F7F00D5A031 /* STControlSprite.h */,
 				9AE1347A18B64F7F00D5A031 /* STControlSprite.m */,
-				9AE1347C18B64FAB00D5A031 /* SKAction+STAdditions.h */,
-				9AE1347D18B64FAB00D5A031 /* SKAction+STAdditions.m */,
 				9AE1347F18B64FC700D5A031 /* SKNode+STAdditions.h */,
 				9AE1348018B64FC700D5A031 /* SKNode+STAdditions.m */,
 				9AF7292518B7B65B00D511BA /* SKEmitterNode+STAdditions.h */,
@@ -299,7 +294,6 @@
 				9AE1347818B64F6600D5A031 /* STControlNode.m in Sources */,
 				9AE1345518B64EED00D5A031 /* MyScene.m in Sources */,
 				9AE1345218B64EED00D5A031 /* ViewController.m in Sources */,
-				9AE1347E18B64FAB00D5A031 /* SKAction+STAdditions.m in Sources */,
 				9AE1348118B64FC700D5A031 /* SKNode+STAdditions.m in Sources */,
 				9AE1344C18B64EED00D5A031 /* AppDelegate.m in Sources */,
 				9AE1344818B64EED00D5A031 /* main.m in Sources */,
