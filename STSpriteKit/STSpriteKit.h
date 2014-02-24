@@ -8,7 +8,6 @@
 
 #import "STControlNode.h"
 #import "STControlSprite.h"
-#import "SKAction+STAdditions.h"
 #import "SKNode+STAdditions.h"
 #import "SKEmitterNode+STAdditions.h"
 #import "STSpriteKitUtils.h"
