@@ -1,8 +1,8 @@
 //
-//  STSpriteKit.h
-//  STSpriteKit
+//  SKScene+STAdditions.h
+//  STSpriteKitDemo
 //
-//  Created by Thomas Dupont on 20/02/2014.
+//  Created by Thomas Dupont on 24/02/2014.
 
 /***********************************************************************************
  *
@@ -28,9 +28,15 @@
  *
  ***********************************************************************************/
 
-#import "STControlNode.h"
-#import "STControlSprite.h"
-#import "SKNode+STAdditions.h"
-#import "SKEmitterNode+STAdditions.h"
-#import "SKScene+STAdditions.h"
-#import "STSpriteKitUtils.h"
+#import <SpriteKit/SpriteKit.h>
+
+@interface SKScene (STAdditions)
+
+/**
+ *  Override the nodeAtPoint: method of your SKScene and call that method in order to deal with the userInteractionEnabled set to NO problem.
+ *  @param p forward the point in parameters of your nodeAtPoint: method.
+ *  @return the node to return from your nodeAtPoint: implementation.
+ */
+- (SKNode *)nodeAtPointWithUserInteractionEnabledAlgorithm:(CGPoint)p;
+
+@end

@@ -31,15 +31,27 @@
         }];
         [node addChild:sprite];
         
-        STControlSprite* sprite2 = [STControlSprite spriteNodeWithColor:[UIColor colorWithRed:0 green:1 blue:0 alpha:1] size:sts(100, 100)];
+        SKSpriteNode* sprite2 = [SKSpriteNode spriteNodeWithColor:[UIColor colorWithRed:0 green:1 blue:0 alpha:1] size:sts(100, 100)];
         sprite2.position = stp(100, 100);
-//        [sprite2 setTouchDownBlock:^{
-//            NSLog(@"sprite2 touch");
-//        }];
         [node addChild:sprite2];
+        
+        SKNode* node2 = [SKNode node];
+        [self addChild:node2];
+        
+        SKSpriteNode* sprite3 = [SKSpriteNode spriteNodeWithColor:[UIColor colorWithRed:1 green:1 blue:0 alpha:1] size:sts(100, 100)];
+        sprite3.position = stp(50, 150);
+        [node2 addChild:sprite3];
+        
+        NSLog(@"node : %@", NSStringFromCGRect([node calculateAccumulatedFrame]));
+        NSLog(@"node2 : %@", NSStringFromCGRect([node2 calculateAccumulatedFrame]));
         
     }
     return self;
+}
+
+- (SKNode*)nodeAtPoint:(CGPoint)p
+{
+    return [self nodeAtPointWithUserInteractionEnabledAlgorithm:p];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
