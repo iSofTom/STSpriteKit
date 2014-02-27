@@ -76,3 +76,13 @@ Propose an alternative algorithm for the SKScene's `nodeAtPoint:` method in orde
 
 Add some function to easyly manipulate CGPoint and CGSize.
 
+
+
+# Usage
+
+To include this component in your project, I recommend you to use [Cocoapods](http://cocoapods.org):
+
+* Add `pod "STSpriteKit"` to your Podfile.
+
+
+
