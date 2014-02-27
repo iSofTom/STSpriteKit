@@ -191,9 +191,9 @@
 				9AE1348018B64FC700D5A031 /* SKNode+STAdditions.m */,
 				9AF7292518B7B65B00D511BA /* SKEmitterNode+STAdditions.h */,
 				9AF7292618B7B65B00D511BA /* SKEmitterNode+STAdditions.m */,
-				9AE1348318B663E800D5A031 /* STSpriteKitUtils.h */,
 				9AF7292818BBAFBD00D511BA /* SKScene+STAdditions.h */,
 				9AF7292918BBAFBD00D511BA /* SKScene+STAdditions.m */,
+				9AE1348318B663E800D5A031 /* STSpriteKitUtils.h */,
 			);
 			name = STSpriteKit;
 			path = ../../STSpriteKit;

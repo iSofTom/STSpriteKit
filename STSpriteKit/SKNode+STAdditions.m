@@ -32,6 +32,20 @@
 
 @implementation SKNode (STAdditions)
 
+- (CGFloat)calculateAccumulatedZPosition
+{
+    CGFloat zPosition = self.zPosition;
+    SKNode* parent = self.parent;
+    
+    while (parent)
+    {
+        zPosition += parent.zPosition;
+        parent = parent.parent;
+    }
+    
+    return zPosition;
+}
+
 - (void)runActionsSequence:(NSArray*)actions
 {
     SKAction* sequence = [SKAction sequence:actions];

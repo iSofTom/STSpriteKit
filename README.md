@@ -17,7 +17,6 @@ Those methods allow to be warn when a touchUp event is recognised:
 - (void)setTouchUpBlock:(dispatch_block_t)touchUpBlock;
 ```
 
-
 Those methods allow to be warn when a touchDown event is recognised:
 
 ```
@@ -68,6 +67,10 @@ This category add some convenient methods to run actions:
 - (void)runActionsGroupForever:(NSArray*)actions;
 - (void)runAction:(SKAction*)action afterDelay:(NSTimeInterval)delay;
 ```
+
+## SKScene
+
+Propose an alternative algorithm for the SKScene's `nodeAtPoint:` method in order to deliver the touch to the pointed node considering its userInteractionEnabled value. In other words: if a node's userInteractionEnabled value is NO, the touch will be forwarded to the node below.
 
 ## Utils
 

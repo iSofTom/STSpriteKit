@@ -30,6 +30,8 @@
 
 #import "SKScene+STAdditions.h"
 
+#import "SKNode+STAdditions.h"
+
 @implementation SKScene (STAdditions)
 
 - (SKNode *)nodeAtPointWithUserInteractionEnabledAlgorithm:(CGPoint)p
@@ -51,11 +53,14 @@
         }
         else
         {
-            if (n1.zPosition > n2.zPosition)
+            CGFloat n1ZPosition = [n1 calculateAccumulatedZPosition];
+            CGFloat n2ZPosition = [n2 calculateAccumulatedZPosition];
+            
+            if (n1ZPosition > n2ZPosition)
             {
                 return NSOrderedAscending;
             }
-            else if (n1.zPosition < n2.zPosition)
+            else if (n1ZPosition < n2ZPosition)
             {
                 return NSOrderedDescending;
             }

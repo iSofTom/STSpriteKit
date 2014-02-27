@@ -30,6 +30,7 @@
 
 #define stp(x,y) CGPointMake(x,y)
 #define sts(w,h) CGSizeMake(w,h)
+#define str(x,y,w,h) CGRectMake(x,y,w,h)
 
 #define stDegreToRadian(degre) (degre * M_PI / 180)
 #define stRadianToDegre(radian) (radian * 180 / M_PI)

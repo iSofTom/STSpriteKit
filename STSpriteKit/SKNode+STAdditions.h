@@ -33,6 +33,12 @@
 @interface SKNode (STAdditions)
 
 /**
+ *  Calculate the accumulated zPosition of the receiver: the receiver's zPosition plus the accumulated zPosition of its parent.
+ *  @return the accumulated zPosition
+ */
+- (CGFloat)calculateAccumulatedZPosition;
+
+/**
  *  Run the actions in sequence.
  *  It's equivalent to do: [xxx runAction:[SKAction sequence:array]]
  *  @param actions An array containing all the action
