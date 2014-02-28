@@ -1,8 +1,8 @@
 //
-//  STSpriteKit.h
+//  STParallaxNode.h
 //  STSpriteKit
 //
-//  Created by Thomas Dupont on 20/02/2014.
+//  Created by Thomas Dupont on 27/02/2014.
 
 /***********************************************************************************
  *
@@ -28,10 +28,22 @@
  *
  ***********************************************************************************/
 
-#import "STControlNode.h"
-#import "STControlSprite.h"
-#import "SKNode+STAdditions.h"
-#import "SKEmitterNode+STAdditions.h"
-#import "SKScene+STAdditions.h"
-#import "STSpriteKitUtils.h"
-#import "STParallaxNode.h"
+#import <SpriteKit/SpriteKit.h>
+
+#import "STParallaxNodeLayer.h"
+
+@interface STParallaxNode : SKNode
+
++ (STParallaxNode*)horizontalParallaxNodeWithSize:(CGSize)size;
+
++ (STParallaxNode*)verticalParallaxNodeWithSize:(CGSize)size;
+
+- (void)addLayerWithChild:(SKNode*)child parallaxFactor:(CGFloat)factor position:(STParallaxNodeChildPosition)position flip:(BOOL)flip;
+
+- (void)addLayerWithChilds:(NSArray*)childs parallaxFactor:(CGFloat)factor position:(STParallaxNodeChildPosition)position;
+
+- (void)addLayer:(STParallaxNodeLayer*)layer;
+
+- (void)updateWithIncrement:(CGFloat)increment;
+
+@end

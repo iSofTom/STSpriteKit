@@ -1,8 +1,8 @@
 //
-//  STSpriteKit.h
+//  STParallaxNodeLayer.h
 //  STSpriteKit
 //
-//  Created by Thomas Dupont on 20/02/2014.
+//  Created by Thomas Dupont on 27/02/2014.
 
 /***********************************************************************************
  *
@@ -28,10 +28,22 @@
  *
  ***********************************************************************************/
 
-#import "STControlNode.h"
-#import "STControlSprite.h"
-#import "SKNode+STAdditions.h"
-#import "SKEmitterNode+STAdditions.h"
-#import "SKScene+STAdditions.h"
-#import "STSpriteKitUtils.h"
-#import "STParallaxNode.h"
+#import <Foundation/Foundation.h>
+
+typedef NS_ENUM(NSUInteger, STParallaxNodeChildPosition)
+{
+    STParallaxNodeChildPositionLeading,
+    STParallaxNodeChildPositionTrailing,
+    STParallaxNodeChildPositionCenter,
+    STParallaxNodeChildPositionRandom
+};
+
+@interface STParallaxNodeLayer : NSObject
+
+@property (nonatomic, strong) SKNode* child;
+@property (nonatomic, strong) NSArray* childs;
+@property (nonatomic, assign) CGFloat factor;
+@property (nonatomic, assign) STParallaxNodeChildPosition position;
+@property (nonatomic, assign) BOOL flip;
+
+@end

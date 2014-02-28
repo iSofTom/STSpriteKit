@@ -1,0 +1,157 @@
+//
+//  STParallaxNodeLayer.m
+//  STSpriteKit
+//
+//  Created by Thomas Dupont on 27/02/2014.
+
+/***********************************************************************************
+ *
+ * Copyright (c) 2014 Thomas Dupont
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ ***********************************************************************************/
+
+#import "STParallaxNodeLayer.h"
+
+#import "STParallaxNodeLayer_private.h"
+
+@implementation STParallaxNodeLayer
+
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+        self.actualChilds = [[NSMutableArray alloc] init];
+        self.actualChildsFlips = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+- (SKNode*)createFirstChild
+{
+    if (self.child)
+    {
+        SKNode* node = [self.child copy];
+        node.zPosition = self.zPosition;
+        [self.actualChilds addObject:node];
+        [self.actualChildsFlips addObject:@(NO)];
+        return node;
+    }
+    else
+    {
+        SKNode* node = [[self.childs objectAtIndex:0] copy];
+        node.zPosition = self.zPosition;
+        [self.actualChilds addObject:node];
+        [self.actualChildsFlips addObject:@(NO)];
+        return node;
+    }
+}
+
+- (SKNode*)createNeighbour:(STParallaxNodeLayerNeighbour)neighbour forChild:(SKNode*)child
+{
+    if (self.child)
+    {
+        NSUInteger index = [self.actualChilds indexOfObject:child];
+        SKNode* node = nil;
+        if (index != NSNotFound)
+        {
+            node = [self.child copy];
+            node.zPosition = self.zPosition;
+            
+            BOOL nodeFlip = NO;
+            
+            if (self.flip)
+            {
+                BOOL previousFlipped = [[self.actualChildsFlips objectAtIndex:index] boolValue];
+                nodeFlip = !previousFlipped;
+                
+                if (nodeFlip)
+                {
+                    if ([self isHorizontal])
+                    {
+                        node.xScale = -1;
+                    }
+                    else
+                    {
+                        node.yScale = -1;
+                    }
+                }
+            }
+            
+            if (neighbour == STParallaxNodeLayerNeighbourLeading)
+            {
+                [self.actualChilds insertObject:node atIndex:0];
+                [self.actualChildsFlips insertObject:@(nodeFlip) atIndex:0];
+            }
+            else
+            {
+                [self.actualChilds addObject:node];
+                [self.actualChildsFlips addObject:@(nodeFlip)];
+            }
+        }
+        return node;
+    }
+    else
+    {
+        NSUInteger index = [self.actualChilds indexOfObject:child];
+        SKNode* node = nil;
+        
+        if (index != NSNotFound)
+        {
+            if ((neighbour == STParallaxNodeLayerNeighbourLeading) && (index == 0))
+            {
+                index = [self.childs count] - 1;
+            }
+            else if ((neighbour == STParallaxNodeLayerNeighbourTrailing) && (index == [self.childs count] - 1))
+            {
+                index = 0;
+            }
+            
+            SKNode* leadingNode = [self.childs objectAtIndex:index];
+            
+            node = [leadingNode copy];
+            node.zPosition = self.zPosition;
+            if (neighbour == STParallaxNodeLayerNeighbourLeading)
+            {
+                [self.actualChilds insertObject:node atIndex:0];
+            }
+            else
+            {
+                [self.actualChilds addObject:node];
+            }
+        }
+        
+        return node;
+    }
+}
+
+- (void)removeChild:(SKNode*)child
+{
+    NSUInteger index = [self.actualChilds indexOfObject:child];
+    
+    if (index != NSNotFound)
+    {
+        [self.actualChilds removeObjectAtIndex:index];
+        [child removeFromParent];
+    }
+}
+
+@end

@@ -1,8 +1,8 @@
 //
-//  STSpriteKit.h
+//  STParallaxNodeLayer_private.h
 //  STSpriteKit
 //
-//  Created by Thomas Dupont on 20/02/2014.
+//  Created by Thomas Dupont on 28/02/2014.
 
 /***********************************************************************************
  *
@@ -28,10 +28,23 @@
  *
  ***********************************************************************************/
 
-#import "STControlNode.h"
-#import "STControlSprite.h"
-#import "SKNode+STAdditions.h"
-#import "SKEmitterNode+STAdditions.h"
-#import "SKScene+STAdditions.h"
-#import "STSpriteKitUtils.h"
-#import "STParallaxNode.h"
+#import "STParallaxNodeLayer.h"
+
+typedef NS_ENUM(NSInteger, STParallaxNodeLayerNeighbour)
+{
+    STParallaxNodeLayerNeighbourLeading,
+    STParallaxNodeLayerNeighbourTrailing
+};
+
+@interface STParallaxNodeLayer ()
+
+@property (nonatomic, assign) CGFloat zPosition;
+@property (nonatomic, assign, getter = isHorizontal) BOOL horizontal;
+@property (nonatomic, strong) NSMutableArray* actualChilds;
+@property (nonatomic, strong) NSMutableArray* actualChildsFlips;
+
+- (SKNode*)createFirstChild;
+- (SKNode*)createNeighbour:(STParallaxNodeLayerNeighbour)neighbour forChild:(SKNode*)child;
+- (void)removeChild:(SKNode*)child;
+
+@end
