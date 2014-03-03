@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "iSofTom" => "thomas@isoftom.com" }
 
-  s.source       = { :path => "https://github.com/iSofTom/STSpriteKit.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/iSofTom/STSpriteKit.git", :tag => s.version.to_s }
   s.platform     = :ios, '7.0'
 
   s.source_files = 'STSpriteKit/*.{h,m}'
