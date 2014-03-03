@@ -28,7 +28,7 @@
  *
  ***********************************************************************************/
 
-#import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
 
 /**
  *  The position of each child in the layer.

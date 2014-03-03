@@ -30,6 +30,7 @@
 
 #import "STParallaxNode.h"
 
+#import "STSpriteKitUtils.h"
 #import "STParallaxNodeLayer_private.h"
 
 @interface STParallaxNode ()
