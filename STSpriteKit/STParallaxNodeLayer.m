@@ -52,15 +52,14 @@
         SKNode* node = [self.child copy];
         node.zPosition = self.zPosition;
         [self.actualChilds addObject:node];
-        [self.actualChildsFlips addObject:@(NO)];
+        [self.actualChildsFlips addObject:@NO];
         return node;
     }
     else
     {
-        SKNode* node = [[self.childs objectAtIndex:0] copy];
+        SKNode* node = [[self.childs firstObject] copy];
         node.zPosition = self.zPosition;
         [self.actualChilds addObject:node];
-        [self.actualChildsFlips addObject:@(NO)];
         return node;
     }
 }
@@ -111,24 +110,45 @@
     }
     else
     {
-        NSUInteger index = [self.actualChilds indexOfObject:child];
+        NSInteger index = 0;
+        
+        if (self.pickingPolicy == STParallaxNodeLayerPickingPolicyCircular)
+        {
+            if (neighbour == STParallaxNodeLayerNeighbourLeading)
+            {
+                index = self.currentChildIndex + 1;
+                
+                if (index == [self.childs count])
+                {
+                    index = 0;
+                }
+            }
+            else if (neighbour == STParallaxNodeLayerNeighbourTrailing)
+            {
+                index = self.currentChildIndex - 1;
+                
+                if (index < 0)
+                {
+                    index = [self.childs count] - 1;
+                }
+            }
+        }
+        else if (self.pickingPolicy == STParallaxNodeLayerPickingPolicyRandom)
+        {
+            index = arc4random_uniform([self.childs count]);
+        }
+        
+        self.currentChildIndex = index;
+        
         SKNode* node = nil;
         
         if (index != NSNotFound)
         {
-            if ((neighbour == STParallaxNodeLayerNeighbourLeading) && (index == 0))
-            {
-                index = [self.childs count] - 1;
-            }
-            else if ((neighbour == STParallaxNodeLayerNeighbourTrailing) && (index == [self.childs count] - 1))
-            {
-                index = 0;
-            }
+            SKNode* modelNode = [self.childs objectAtIndex:index];
             
-            SKNode* leadingNode = [self.childs objectAtIndex:index];
-            
-            node = [leadingNode copy];
+            node = [modelNode copy];
             node.zPosition = self.zPosition;
+            
             if (neighbour == STParallaxNodeLayerNeighbourLeading)
             {
                 [self.actualChilds insertObject:node atIndex:0];
@@ -150,6 +170,10 @@
     if (index != NSNotFound)
     {
         [self.actualChilds removeObjectAtIndex:index];
+        if (self.child)
+        {
+            [self.actualChildsFlips removeObjectAtIndex:index];
+        }
         [child removeFromParent];
     }
 }

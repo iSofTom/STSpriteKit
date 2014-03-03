@@ -38,6 +38,12 @@ typedef NS_ENUM(NSUInteger, STParallaxNodeChildPosition)
     STParallaxNodeChildPositionRandom
 };
 
+typedef NS_ENUM(NSInteger, STParallaxNodeLayerPickingPolicy)
+{
+    STParallaxNodeLayerPickingPolicyCircular,
+    STParallaxNodeLayerPickingPolicyRandom
+};
+
 @interface STParallaxNodeLayer : NSObject
 
 @property (nonatomic, strong) SKNode* child;
@@ -45,5 +51,6 @@ typedef NS_ENUM(NSUInteger, STParallaxNodeChildPosition)
 @property (nonatomic, assign) CGFloat factor;
 @property (nonatomic, assign) STParallaxNodeChildPosition position;
 @property (nonatomic, assign) BOOL flip;
+@property (nonatomic, assign) STParallaxNodeLayerPickingPolicy pickingPolicy;
 
 @end

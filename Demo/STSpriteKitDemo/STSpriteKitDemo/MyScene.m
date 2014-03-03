@@ -25,18 +25,16 @@
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         
-        self.parallaxNode = [STParallaxNode horizontalParallaxNodeWithSize:sts(size.width, size.height)];
+        self.parallaxNode = [STParallaxNode verticalParallaxNodeWithSize:sts(size.width, size.height)];
         [self addChild:self.parallaxNode];
         
         SKSpriteNode* s1 = [SKSpriteNode spriteNodeWithImageNamed:@"parallax-1"];
-//        s1.anchorPoint = stp(0,0);
-        [self.parallaxNode addLayerWithChild:s1 parallaxFactor:0.5 position:STParallaxNodeChildPositionLeading flip:YES];
+        [self.parallaxNode addLayerWithChild:s1 parallaxFactor:0.5 position:STParallaxNodeChildPositionCenter flip:NO];
         
         SKSpriteNode* s2 = [SKSpriteNode spriteNodeWithImageNamed:@"parallax-2"];
-//        s2.anchorPoint = stp(0,0);
-        [self.parallaxNode addLayerWithChild:s2 parallaxFactor:1.0 position:STParallaxNodeChildPositionLeading flip:NO];
+        [self.parallaxNode addLayerWithChild:s2 parallaxFactor:1.0 position:STParallaxNodeChildPositionLeading flip:YES];
         
-        
+        /*
 //        STControlNode* node = [STControlNode node];
 //        [node setTouchDownBlock:^{
 //            NSLog(@"node touch");
@@ -63,7 +61,7 @@
 //        
 //        NSLog(@"node : %@", NSStringFromCGRect([node calculateAccumulatedFrame]));
 //        NSLog(@"node2 : %@", NSStringFromCGRect([node2 calculateAccumulatedFrame]));
-        
+        */
     }
     return self;
 }

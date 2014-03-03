@@ -40,7 +40,7 @@
 
 - (void)addLayerWithChild:(SKNode*)child parallaxFactor:(CGFloat)factor position:(STParallaxNodeChildPosition)position flip:(BOOL)flip;
 
-- (void)addLayerWithChilds:(NSArray*)childs parallaxFactor:(CGFloat)factor position:(STParallaxNodeChildPosition)position;
+- (void)addLayerWithChilds:(NSArray*)childs parallaxFactor:(CGFloat)factor position:(STParallaxNodeChildPosition)position policy:(STParallaxNodeLayerPickingPolicy)policy;
 
 - (void)addLayer:(STParallaxNodeLayer*)layer;
 

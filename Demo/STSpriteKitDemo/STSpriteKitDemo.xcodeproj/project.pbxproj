@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9ACF6DF518C4B887009B80C4 /* ControlScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF6DF418C4B887009B80C4 /* ControlScene.m */; };
+		9ACF6DF918C4B9A1009B80C4 /* SceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF6DF718C4B9A1009B80C4 /* SceneViewController.m */; };
+		9ACF6DFA18C4B9A1009B80C4 /* SceneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ACF6DF818C4B9A1009B80C4 /* SceneViewController.xib */; };
+		9ACF6E0218C4BCDA009B80C4 /* HorizontalParallaxScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF6E0118C4BCDA009B80C4 /* HorizontalParallaxScene.m */; };
+		9ACF6E0518C4BD55009B80C4 /* VerticalParallaxScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF6E0418C4BD55009B80C4 /* VerticalParallaxScene.m */; };
 		9AD8066C18BF9CEC00C34E35 /* STParallaxNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD8066B18BF9CEC00C34E35 /* STParallaxNode.m */; };
 		9AD8066F18BFAAE700C34E35 /* STParallaxNodeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD8066E18BFAAE700C34E35 /* STParallaxNodeLayer.m */; };
 		9AE1343A18B64EED00D5A031 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE1343918B64EED00D5A031 /* Foundation.framework */; };
@@ -18,7 +23,6 @@
 		9AE1344C18B64EED00D5A031 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1344B18B64EED00D5A031 /* AppDelegate.m */; };
 		9AE1344F18B64EED00D5A031 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AE1344D18B64EED00D5A031 /* Main.storyboard */; };
 		9AE1345218B64EED00D5A031 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1345118B64EED00D5A031 /* ViewController.m */; };
-		9AE1345518B64EED00D5A031 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1345418B64EED00D5A031 /* MyScene.m */; };
 		9AE1345918B64EED00D5A031 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE1345818B64EED00D5A031 /* Images.xcassets */; };
 		9AE1346018B64EED00D5A031 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE1345F18B64EED00D5A031 /* XCTest.framework */; };
 		9AE1346118B64EED00D5A031 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE1343918B64EED00D5A031 /* Foundation.framework */; };
@@ -43,6 +47,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9ACF6DF318C4B887009B80C4 /* ControlScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlScene.h; sourceTree = "<group>"; };
+		9ACF6DF418C4B887009B80C4 /* ControlScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlScene.m; sourceTree = "<group>"; };
+		9ACF6DF618C4B9A1009B80C4 /* SceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneViewController.h; sourceTree = "<group>"; };
+		9ACF6DF718C4B9A1009B80C4 /* SceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneViewController.m; sourceTree = "<group>"; };
+		9ACF6DF818C4B9A1009B80C4 /* SceneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SceneViewController.xib; sourceTree = "<group>"; };
+		9ACF6E0018C4BCDA009B80C4 /* HorizontalParallaxScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalParallaxScene.h; sourceTree = "<group>"; };
+		9ACF6E0118C4BCDA009B80C4 /* HorizontalParallaxScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalParallaxScene.m; sourceTree = "<group>"; };
+		9ACF6E0318C4BD55009B80C4 /* VerticalParallaxScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalParallaxScene.h; sourceTree = "<group>"; };
+		9ACF6E0418C4BD55009B80C4 /* VerticalParallaxScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalParallaxScene.m; sourceTree = "<group>"; };
 		9AD8066A18BF9CEC00C34E35 /* STParallaxNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STParallaxNode.h; sourceTree = "<group>"; };
 		9AD8066B18BF9CEC00C34E35 /* STParallaxNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STParallaxNode.m; sourceTree = "<group>"; };
 		9AD8066D18BFAAE700C34E35 /* STParallaxNodeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STParallaxNodeLayer.h; sourceTree = "<group>"; };
@@ -62,8 +75,6 @@
 		9AE1344E18B64EED00D5A031 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9AE1345018B64EED00D5A031 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		9AE1345118B64EED00D5A031 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		9AE1345318B64EED00D5A031 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
-		9AE1345418B64EED00D5A031 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
 		9AE1345818B64EED00D5A031 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9AE1345E18B64EED00D5A031 /* STSpriteKitDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = STSpriteKitDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AE1345F18B64EED00D5A031 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -149,8 +160,15 @@
 				9AE1344D18B64EED00D5A031 /* Main.storyboard */,
 				9AE1345018B64EED00D5A031 /* ViewController.h */,
 				9AE1345118B64EED00D5A031 /* ViewController.m */,
-				9AE1345318B64EED00D5A031 /* MyScene.h */,
-				9AE1345418B64EED00D5A031 /* MyScene.m */,
+				9ACF6DF618C4B9A1009B80C4 /* SceneViewController.h */,
+				9ACF6DF718C4B9A1009B80C4 /* SceneViewController.m */,
+				9ACF6DF818C4B9A1009B80C4 /* SceneViewController.xib */,
+				9ACF6DF318C4B887009B80C4 /* ControlScene.h */,
+				9ACF6DF418C4B887009B80C4 /* ControlScene.m */,
+				9ACF6E0018C4BCDA009B80C4 /* HorizontalParallaxScene.h */,
+				9ACF6E0118C4BCDA009B80C4 /* HorizontalParallaxScene.m */,
+				9ACF6E0318C4BD55009B80C4 /* VerticalParallaxScene.h */,
+				9ACF6E0418C4BD55009B80C4 /* VerticalParallaxScene.m */,
 				9AE1345818B64EED00D5A031 /* Images.xcassets */,
 				9AE1344218B64EED00D5A031 /* Supporting Files */,
 			);
@@ -288,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AE1344618B64EED00D5A031 /* InfoPlist.strings in Resources */,
+				9ACF6DFA18C4B9A1009B80C4 /* SceneViewController.xib in Resources */,
 				9AE1345918B64EED00D5A031 /* Images.xcassets in Resources */,
 				9AE1344F18B64EED00D5A031 /* Main.storyboard in Resources */,
 			);
@@ -309,13 +328,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AE1347818B64F6600D5A031 /* STControlNode.m in Sources */,
-				9AE1345518B64EED00D5A031 /* MyScene.m in Sources */,
+				9ACF6DF918C4B9A1009B80C4 /* SceneViewController.m in Sources */,
 				9AE1345218B64EED00D5A031 /* ViewController.m in Sources */,
+				9ACF6E0518C4BD55009B80C4 /* VerticalParallaxScene.m in Sources */,
 				9AE1348118B64FC700D5A031 /* SKNode+STAdditions.m in Sources */,
 				9AE1344C18B64EED00D5A031 /* AppDelegate.m in Sources */,
 				9AD8066F18BFAAE700C34E35 /* STParallaxNodeLayer.m in Sources */,
+				9ACF6E0218C4BCDA009B80C4 /* HorizontalParallaxScene.m in Sources */,
 				9AD8066C18BF9CEC00C34E35 /* STParallaxNode.m in Sources */,
 				9AE1344818B64EED00D5A031 /* main.m in Sources */,
+				9ACF6DF518C4B887009B80C4 /* ControlScene.m in Sources */,
 				9AF7292718B7B65B00D511BA /* SKEmitterNode+STAdditions.m in Sources */,
 				9AF7292A18BBAFBD00D511BA /* SKScene+STAdditions.m in Sources */,
 				9AE1347B18B64F7F00D5A031 /* STControlSprite.m in Sources */,
