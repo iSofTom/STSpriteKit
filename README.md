@@ -3,6 +3,17 @@ STSpriteKit
 
 SpriteKit helpers and additions.
 
+## Parallax
+
+The STParallaxNode is a node that create parallax effect in a highly customizable way.
+
+- It handle both horizontal and vertical directions (but only one at a time).
+- You can add as many layers as you want on the parallax node.
+- You can control the speed of the parallax node over time.
+- Each layer has its own speed factor.
+- A layer can display one child. That child will be copied as soon as necessary, and may even be flipped one time in two.
+- A layer can display several childs. The pick up policy can be circular (in the array order) or random.
+- A layer can position its child with different values, including random one.
 
 ## Controls
 
