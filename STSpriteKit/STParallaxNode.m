@@ -44,7 +44,7 @@
 
 + (STParallaxNode*)horizontalParallaxNodeWithSize:(CGSize)size
 {
-    STParallaxNode* node = [STParallaxNode node];
+    STParallaxNode* node = [[STParallaxNode alloc] init];
     node.size = size;
     node.horizontal = YES;
     return node;
@@ -52,10 +52,16 @@
 
 + (STParallaxNode*)verticalParallaxNodeWithSize:(CGSize)size
 {
-    STParallaxNode* node = [STParallaxNode node];
+    STParallaxNode* node = [[STParallaxNode alloc] init];
     node.size = size;
     node.horizontal = NO;
     return node;
+}
+
++ (instancetype)node
+{
+    [NSException raise:@"STParallaxNodeException" format:@"The STParallaxNode should be created using one of the two constructors: horizontalParallaxNodeWithSize: and verticalParallaxNodeWithSize:"];
+    return nil;
 }
 
 - (id)init

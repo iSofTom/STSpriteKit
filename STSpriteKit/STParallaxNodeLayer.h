@@ -30,6 +30,13 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  The position of each child in the layer.
+ *  STParallaxNodeChildPositionLeading is the bottom of the node in horizontal mode, and the left of the node in vertical mode.
+ *  STParallaxNodeChildPositionTrailing is the top of the node in horizontal mode, and the right of the node in vertical mode.
+ *  STParallaxNodeChildPositionCenter is the center of the node.
+ *  STParallaxNodeChildPositionRandom is a random position between leading and trailing.
+ */
 typedef NS_ENUM(NSUInteger, STParallaxNodeChildPosition)
 {
     STParallaxNodeChildPositionLeading,
@@ -38,6 +45,11 @@ typedef NS_ENUM(NSUInteger, STParallaxNodeChildPosition)
     STParallaxNodeChildPositionRandom
 };
 
+/**
+ *  The policy to use to pick a child among the array of childs.
+ *  STParallaxNodeLayerPickingPolicyCircular will pick from first to last and then the first again etc.
+ *  STParallaxNodeLayerPickingPolicyRandom will randomly pick one from all the childs
+ */
 typedef NS_ENUM(NSInteger, STParallaxNodeLayerPickingPolicy)
 {
     STParallaxNodeLayerPickingPolicyCircular,
@@ -46,11 +58,43 @@ typedef NS_ENUM(NSInteger, STParallaxNodeLayerPickingPolicy)
 
 @interface STParallaxNodeLayer : NSObject
 
+/**
+ *  The child to display on the layer.
+ *  If this property is set, the layer will only use it, and the childs array will be ignored.
+ */
 @property (nonatomic, strong) SKNode* child;
+
+/**
+ *  This childs to display on the layer.
+ *  This property will be ignored if a child is set.
+ */
 @property (nonatomic, strong) NSArray* childs;
+
+/**
+ *  The speed factor of the layer.
+ *  1.0 will move the child with the same speed as the parallax node.
+ *  Default value is 1.0.
+ */
 @property (nonatomic, assign) CGFloat factor;
+
+/**
+ *  The position of each child.
+ *  Default value is STParallaxNodeChildPositionLeading.
+ */
 @property (nonatomic, assign) STParallaxNodeChildPosition position;
+
+/**
+ *  YES if the child should be flipped one time in two, NO otherwise.
+ *  The property is used only if the child property is not nil.
+ *  Default value is NO.
+ */
 @property (nonatomic, assign) BOOL flip;
+
+/**
+ *  The policy to use to pick a child among the array of childs.
+ *  The property is used only if the child property is nil.
+ *  Default value is STParallaxNodeLayerPickingPolicyCircular.
+ */
 @property (nonatomic, assign) STParallaxNodeLayerPickingPolicy pickingPolicy;
 
 @end

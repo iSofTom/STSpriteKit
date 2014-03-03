@@ -41,6 +41,10 @@
     {
         self.actualChilds = [[NSMutableArray alloc] init];
         self.actualChildsFlips = [[NSMutableArray alloc] init];
+        self.factor = 1.0;
+        self.position = STParallaxNodeChildPositionLeading;
+        self.flip = NO;
+        self.pickingPolicy = STParallaxNodeLayerPickingPolicyCircular;
     }
     return self;
 }
@@ -135,7 +139,7 @@
         }
         else if (self.pickingPolicy == STParallaxNodeLayerPickingPolicyRandom)
         {
-            index = arc4random_uniform([self.childs count]);
+            index = arc4random_uniform((uint32_t)[self.childs count]);
         }
         
         self.currentChildIndex = index;
