@@ -36,6 +36,18 @@
         
         SKSpriteNode* s1 = [SKSpriteNode spriteNodeWithImageNamed:@"resource-1"];
         [self.parallaxNode addLayerWithChild:s1 parallaxFactor:1 position:STParallaxNodeChildPositionLeading flip:NO];
+        
+        SKSpriteNode* s7 = [SKSpriteNode spriteNodeWithImageNamed:@"resource-7"];
+        SKSpriteNode* s8 = [SKSpriteNode spriteNodeWithImageNamed:@"resource-8"];
+        SKSpriteNode* s9 = [SKSpriteNode spriteNodeWithImageNamed:@"resource-9"];
+        STParallaxNodeLayer* layer = [[STParallaxNodeLayer alloc] init];
+        layer.childs = @[s7, s8, s9];
+        layer.factor = 0.5;
+        layer.position = STParallaxNodeChildPositionRandom;
+        layer.positionRange = NSMakeRange(size.height / 2.0, size.height / 2.0 - 44);
+        layer.pickingPolicy = STParallaxNodeLayerPickingPolicyRandom;
+        layer.marginRange = NSMakeRange(50, 250);
+        [self.parallaxNode addLayer:layer];
     }
     return self;
 }

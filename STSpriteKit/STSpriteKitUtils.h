@@ -28,9 +28,20 @@
  *
  ***********************************************************************************/
 
-#define stp(x,y) CGPointMake(x,y)
-#define sts(w,h) CGSizeMake(w,h)
-#define str(x,y,w,h) CGRectMake(x,y,w,h)
+#define stp(x,y)        CGPointMake(x,y)
+#define stpZero         CGPointMake(0,0)
+
+#define sts(w,h)        CGSizeMake(w,h)
+#define stsZero         CGSizeMake(0,0)
+
+#define str(x,y,w,h)    CGRectMake(x,y,w,h)
+#define strZero         CGRectMake(0,0,0,0)
+#define strFromSize(s)  CGRectMake(0,0,s.width,s.height)
+
+#define stv(dx,dy)      CGVectorMake(dx,dy)
+#define stvZero         CGVectorMake(0,0)
+#define stvHorizontal(dx)   CGVectorMake(dx,0)
+#define stvVertical(dy)     CGVectorMake(0,dy)
 
 #define stDegreToRadian(degre) (degre * M_PI / 180)
 #define stRadianToDegre(radian) (radian * 180 / M_PI)
@@ -59,4 +70,9 @@ static inline CGPoint stpSubtract(CGPoint pt1, CGPoint pt2)
 static inline CGPoint stpMultiply(CGPoint pt, float scalar)
 {
     return CGPointMake(pt.x * scalar, pt.y * scalar);
+}
+
+static inline CGPoint strGetCenter(CGRect rect)
+{
+    return CGPointMake(rect.origin.x + rect.size.width/2.0, rect.origin.y + rect.size.height/2.0);
 }

@@ -28,11 +28,23 @@
         self.parallaxNode = [STParallaxNode verticalParallaxNodeWithSize:sts(size.width, size.height)];
         [self addChild:self.parallaxNode];
         
-        SKSpriteNode* s1 = [SKSpriteNode spriteNodeWithImageNamed:@"resource-4"];
-        SKSpriteNode* s2 = [SKSpriteNode spriteNodeWithImageNamed:@"resource-5"];
-        SKSpriteNode* s3 = [SKSpriteNode spriteNodeWithImageNamed:@"resource-6"];
+        SKSpriteNode* s4 = [SKSpriteNode spriteNodeWithImageNamed:@"resource-4"];
+        SKSpriteNode* s5 = [SKSpriteNode spriteNodeWithImageNamed:@"resource-5"];
+        SKSpriteNode* s6 = [SKSpriteNode spriteNodeWithImageNamed:@"resource-6"];
+        [self.parallaxNode addLayerWithChilds:@[s4,s5,s6] parallaxFactor:0.5 position:STParallaxNodeChildPositionRandom policy:STParallaxNodeLayerPickingPolicyRandom];
         
-        [self.parallaxNode addLayerWithChilds:@[s1,s2,s3] parallaxFactor:1.0 position:STParallaxNodeChildPositionRandom policy:STParallaxNodeLayerPickingPolicyRandom];
+        SKSpriteNode* s7 = [SKSpriteNode spriteNodeWithImageNamed:@"resource-7"];
+        SKSpriteNode* s8 = [SKSpriteNode spriteNodeWithImageNamed:@"resource-8"];
+        SKSpriteNode* s9 = [SKSpriteNode spriteNodeWithImageNamed:@"resource-9"];
+        STParallaxNodeLayer* layer = [[STParallaxNodeLayer alloc] init];
+        layer.childs = @[s7, s8, s9];
+        layer.factor = 1.0;
+        layer.position = STParallaxNodeChildPositionRandom;
+        layer.pickingPolicy = STParallaxNodeLayerPickingPolicyRandom;
+        layer.marginRange = NSMakeRange(0, 200);
+        [self.parallaxNode addLayer:layer];
+        
+        
     }
     return self;
 }

@@ -43,8 +43,11 @@
         self.actualChildsFlips = [[NSMutableArray alloc] init];
         self.factor = 1.0;
         self.position = STParallaxNodeChildPositionLeading;
+        self.positionRange = NSMakeRange(NSNotFound, 0);
         self.flip = NO;
         self.pickingPolicy = STParallaxNodeLayerPickingPolicyCircular;
+        self.marginRange = NSMakeRange(0, 0);
+        self.nextMarginValue = 0;
     }
     return self;
 }
@@ -68,12 +71,32 @@
     }
 }
 
+- (void)setMarginRange:(NSRange)marginRange
+{
+    _marginRange = marginRange;
+    
+    [self computeNextMarginValue];
+}
+
+- (void)computeNextMarginValue
+{
+    if (self.marginRange.length == 0)
+    {
+        self.nextMarginValue = self.marginRange.location;
+    }
+    else
+    {
+        self.nextMarginValue = self.marginRange.location + arc4random() % (int)(self.marginRange.length);
+    }
+}
+
 - (SKNode*)createNeighbour:(STParallaxNodeLayerNeighbour)neighbour forChild:(SKNode*)child
 {
+    SKNode* node = nil;
+    
     if (self.child)
     {
         NSUInteger index = [self.actualChilds indexOfObject:child];
-        SKNode* node = nil;
         if (index != NSNotFound)
         {
             node = [self.child copy];
@@ -110,7 +133,6 @@
                 [self.actualChildsFlips addObject:@(nodeFlip)];
             }
         }
-        return node;
     }
     else
     {
@@ -144,8 +166,6 @@
         
         self.currentChildIndex = index;
         
-        SKNode* node = nil;
-        
         if (index != NSNotFound)
         {
             SKNode* modelNode = [self.childs objectAtIndex:index];
@@ -162,9 +182,11 @@
                 [self.actualChilds addObject:node];
             }
         }
-        
-        return node;
     }
+    
+    [self computeNextMarginValue];
+    
+    return node;
 }
 
 - (void)removeChild:(SKNode*)child

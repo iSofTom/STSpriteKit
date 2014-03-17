@@ -43,6 +43,7 @@ typedef NS_ENUM(NSInteger, STParallaxNodeLayerNeighbour)
 @property (nonatomic, strong) NSMutableArray* actualChilds;
 @property (nonatomic, strong) NSMutableArray* actualChildsFlips;
 @property (nonatomic, assign) NSUInteger currentChildIndex;
+@property (nonatomic, assign) NSUInteger nextMarginValue;
 
 - (SKNode*)createFirstChild;
 - (SKNode*)createNeighbour:(STParallaxNodeLayerNeighbour)neighbour forChild:(SKNode*)child;

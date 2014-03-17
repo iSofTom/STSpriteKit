@@ -99,6 +99,10 @@
 {
     layer.horizontal = self.horizontal;
     layer.zPosition = [self.layers count] + 1;
+    if (layer.positionRange.location == NSNotFound)
+    {
+        layer.positionRange = NSMakeRange(0, self.horizontal ? self.size.height : self.size.width);
+    }
     [self.layers addObject:layer];
     
     SKNode* child = [self createNeighbour:STParallaxNodeLayerNeighbourTrailing onLayer:layer forChild:nil];
@@ -133,28 +137,28 @@
         {
             if (increment > 0)
             {
-                if (CGRectGetMaxX(firstChildRect) <= 0)
-                {
-                    [layer removeChild:firstChild];
-                }
-                
-                if (CGRectGetMaxX(lastChildRect) <= self.size.width)
+                if (CGRectGetMaxX(lastChildRect) <= self.size.width - layer.nextMarginValue)
                 {
                     SKNode* child = [self createNeighbour:STParallaxNodeLayerNeighbourTrailing onLayer:layer forChild:lastChild];
                     [self addChild:child];
                 }
+                
+                if (CGRectGetMaxX(firstChildRect) <= -(NSInteger)layer.nextMarginValue)
+                {
+                    [layer removeChild:firstChild];
+                }
             }
             else if (increment < 0)
             {
-                if (CGRectGetMinX(lastChildRect) >= self.size.width)
-                {
-                    [layer removeChild:lastChild];
-                }
-                
-                if (CGRectGetMinX(firstChildRect) >= 0)
+                if (CGRectGetMinX(firstChildRect) >= layer.nextMarginValue)
                 {
                     SKNode* child = [self createNeighbour:STParallaxNodeLayerNeighbourLeading onLayer:layer forChild:firstChild];
                     [self addChild:child];
+                }
+                
+                if (CGRectGetMinX(lastChildRect) >= self.size.width + layer.nextMarginValue)
+                {
+                    [layer removeChild:lastChild];
                 }
             }
         }
@@ -162,28 +166,28 @@
         {
             if (increment > 0)
             {
-                if (CGRectGetMinY(lastChildRect) >= self.size.height)
-                {
-                    [layer removeChild:lastChild];
-                }
-                
-                if (CGRectGetMinY(firstChildRect) >= 0)
+                if (CGRectGetMinY(firstChildRect) >= layer.nextMarginValue)
                 {
                     SKNode* child = [self createNeighbour:STParallaxNodeLayerNeighbourLeading onLayer:layer forChild:firstChild];
                     [self addChild:child];
                 }
+                
+                if (CGRectGetMinY(lastChildRect) >= self.size.height + layer.nextMarginValue)
+                {
+                    [layer removeChild:lastChild];
+                }
             }
             else if (increment < 0)
             {
-                if (CGRectGetMaxY(firstChildRect) <= 0)
-                {
-                    [layer removeChild:firstChild];
-                }
-                
-                if (CGRectGetMaxY(lastChildRect) <= self.size.height)
+                if (CGRectGetMaxY(lastChildRect) <= self.size.height - layer.nextMarginValue)
                 {
                     SKNode* child = [self createNeighbour:STParallaxNodeLayerNeighbourTrailing onLayer:layer forChild:lastChild];
                     [self addChild:child];
+                }
+                
+                if (CGRectGetMaxY(firstChildRect) <= -(NSInteger)layer.nextMarginValue)
+                {
+                    [layer removeChild:firstChild];
                 }
             }
         }
@@ -194,6 +198,9 @@
 {
     SKNode* node = nil;
     CGRect childFrame;
+    
+    NSUInteger margin = layer.nextMarginValue;
+    
     if (child)
     {
         node = [layer createNeighbour:neighbour forChild:child];
@@ -214,56 +221,56 @@
     {
         if (neighbour == STParallaxNodeLayerNeighbourLeading)
         {
-            x = CGRectGetMinX(childFrame) - nodeFrame.size.width/2.0;
+            x = CGRectGetMinX(childFrame) - nodeFrame.size.width/2.0 - margin;
         }
         else
         {
-            x = CGRectGetMaxX(childFrame) + nodeFrame.size.width/2.0;
+            x = CGRectGetMaxX(childFrame) + nodeFrame.size.width/2.0 + margin;
         }
         
         if (layer.position == STParallaxNodeChildPositionLeading)
         {
-            y = nodeFrame.size.height/2.0;
+            y = layer.positionRange.location + nodeFrame.size.height/2.0;
         }
         else if (layer.position == STParallaxNodeChildPositionTrailing)
         {
-            y = self.size.height - nodeFrame.size.height/2.0;
+            y = layer.positionRange.location + layer.positionRange.length - nodeFrame.size.height/2.0;
         }
         else if (layer.position == STParallaxNodeChildPositionCenter)
         {
-            y = self.size.height/2.0;
+            y = layer.positionRange.location + layer.positionRange.length / 2.0;
         }
         if (layer.position == STParallaxNodeChildPositionRandom)
         {
-            y = nodeFrame.size.height/2.0 + arc4random() % (int)(self.size.height - nodeFrame.size.height);
+            y = layer.positionRange.location + nodeFrame.size.height/2.0 + arc4random() % (int)(layer.positionRange.length - nodeFrame.size.height);
         }
     }
     else
     {
         if (neighbour == STParallaxNodeLayerNeighbourLeading)
         {
-            y = CGRectGetMinY(childFrame) - nodeFrame.size.height/2.0;
+            y = CGRectGetMinY(childFrame) - nodeFrame.size.height/2.0 - margin;
         }
         else
         {
-            y = CGRectGetMaxY(childFrame) + nodeFrame.size.height/2.0;
+            y = CGRectGetMaxY(childFrame) + nodeFrame.size.height/2.0 + margin;
         }
         
         if (layer.position == STParallaxNodeChildPositionLeading)
         {
-            x = nodeFrame.size.width/2.0;
+            x = layer.positionRange.location + nodeFrame.size.width/2.0;
         }
         else if (layer.position == STParallaxNodeChildPositionTrailing)
         {
-            x = self.size.width - nodeFrame.size.width/2.0;
+            x = layer.positionRange.location + layer.positionRange.length - nodeFrame.size.width/2.0;
         }
         else if (layer.position == STParallaxNodeChildPositionCenter)
         {
-            x = self.size.width/2.0;
+            x = layer.positionRange.location + layer.positionRange.length / 2.0;
         }
         if (layer.position == STParallaxNodeChildPositionRandom)
         {
-            x = nodeFrame.size.width/2.0 + arc4random() % (int)(self.size.width - nodeFrame.size.width);
+            x = layer.positionRange.location + nodeFrame.size.width/2.0 + arc4random() % (int)(layer.positionRange.length - nodeFrame.size.width);
         }
     }
     

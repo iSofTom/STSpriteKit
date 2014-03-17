@@ -84,6 +84,16 @@ typedef NS_ENUM(NSInteger, STParallaxNodeLayerPickingPolicy)
 @property (nonatomic, assign) STParallaxNodeChildPosition position;
 
 /**
+ *  The range used to get the position of each child.
+ *  If the position is STParallaxNodeChildPositionLeading, positionRange.location is used.
+ *  If the position is STParallaxNodeChildPositionTrailing, (positionRange.location + positionRange.length) is used.
+ *  If the position is STParallaxNodeChildPositionCenter, (positionRange.location + positionRange.length / 2.0) is used.
+ *  If the position is STParallaxNodeChildPositionRandom, a random value in the range is used.
+ *  Default value is NSMakeRange(0,size.width) or NSMakeRange(0,size.height) based on the direction of the STParallaxNode.
+ */
+@property (nonatomic, assign) NSRange positionRange;
+
+/**
  *  YES if the child should be flipped one time in two, NO otherwise.
  *  The property is used only if the child property is not nil.
  *  Default value is NO.
@@ -96,5 +106,13 @@ typedef NS_ENUM(NSInteger, STParallaxNodeLayerPickingPolicy)
  *  Default value is STParallaxNodeLayerPickingPolicyCircular.
  */
 @property (nonatomic, assign) STParallaxNodeLayerPickingPolicy pickingPolicy;
+
+/**
+ *  The range used to get the distance between the end of a child and the start of the next one.
+ *  If marginRange.length is 0, marginRange.location is used.
+ *  Otherwise a random value in the range is used.
+ *  Default value is NSMakeRange(0,0).
+ */
+@property (nonatomic, assign) NSRange marginRange;
 
 @end

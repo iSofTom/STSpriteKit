@@ -13,7 +13,8 @@ The STParallaxNode is a node that create parallax effect in a highly customizabl
 - Each layer has its own speed factor.
 - A layer can display one child. That child will be copied as soon as necessary, and may even be flipped one time in two.
 - A layer can display several childs. The pick up policy can be circular (in the array order) or random.
-- A layer can position its child with different values, including random one.
+- A layer can position its child with different values, including random one from a range.
+- The distance between each child of a layer is configurable with a random value from a range.
 
 ## Controls
 
