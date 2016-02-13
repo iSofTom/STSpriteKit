@@ -92,7 +92,7 @@ Add some function to easyly manipulate CGPoint and CGSize.
 
 # Usage
 
-To include this component in your project, I recommend you to use [Cocoapods](http://cocoapods.org):
+To include this component in your project, I recommend you to use [CocoaPods](http://cocoapods.org):
 
 * Add `pod "STSpriteKit"` to your Podfile.
 
